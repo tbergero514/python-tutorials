@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://docs.qusandbox.com/credit-risk-case-part-iii/#0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- Shady DOM styles for custom-style --><!-- Shady DOM styles for dom-template --><!-- Shady DOM styles for dom-repeat --><!-- Shady DOM styles for array-selector --><!-- Shady DOM styles for dom-if --><!-- Shady DOM styles for iron-localstorage --><!-- Shady DOM styles for iron-meta --><!-- Shady DOM styles for iron-meta-query --><!-- Shady DOM styles for paper-ripple --><style scope="paper-ripple">paper-ripple {
+  display: block;
+        position: absolute;
+        border-radius: inherit;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        
+        pointer-events: none;
+}
+
+paper-ripple[animating] {
+  -webkit-transform: translate(0, 0);
+        transform: translate3d(0, 0, 0);
+}
+
+#background.paper-ripple, #waves.paper-ripple, .wave-container.paper-ripple, .wave.paper-ripple {
+  pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+}
+
+#background.paper-ripple, .wave.paper-ripple {
+  opacity: 0;
+}
+
+#waves.paper-ripple, .wave.paper-ripple {
+  overflow: hidden;
+}
+
+.wave-container.paper-ripple, .wave.paper-ripple {
+  border-radius: 50%;
+}
+
+paper-ripple.circle #background.paper-ripple, paper-ripple.circle #waves.paper-ripple {
+  border-radius: 50%;
+}
+
+paper-ripple.circle .wave-container.paper-ripple {
+  overflow: hidden;
+}</style><!-- Shady DOM styles for paper-radio-button --><!-- Shady DOM styles for paper-radio-group --><!-- Shady DOM styles for google-codelab-survey --><!-- Shady DOM styles for google-codelab-step --><style scope="google-codelab-step-0">.google-codelab-step-0 .google-codelab-step:root {
+  ;
+}
+
+.google-codelab-step-0 {
+  ;
+}
+
+.google-codelab-step-0 {
+  line-height: 24px;
+        display: block;
+}
+
+.google-codelab-step-0 #title.google-codelab-step {
+  font-size: 28px;
+        font-weight: 400;
+        line-height: 1em;
+        margin: 0 0 30px;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step {
+  box-shadow: 1px 1px 16px #ccc;
+        background: #fff;
+        max-width: 800px;
+        font-size: 14px;
+        margin: 0 auto;
+        margin-bottom: 32px;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step .inner.google-codelab-step {
+  padding: 24px;
+}
+
+google-codelab[theme="minimal"] .google-codelab-step-0 .instructions.google-codelab-step .inner.google-codelab-step,.google-codelab-step-0  google-codelab-stepgoogle-codelab[theme="minimal"] .instructions.google-codelab-step .inner.google-codelab-step {
+  padding: 0 24px;
+}
+
+@media (max-width: 800px) {
+.google-codelab-step-0 .instructions.google-codelab-step {
+  margin: 0 0 16px 0;
+}
+
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  a,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  a, google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  a:visited,.google-codelab-step-0   google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  a:visited {
+  color: #0097A7;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  h2,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  h2, google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  h3,.google-codelab-step-0   google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  h3, google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  h4,.google-codelab-step-0   google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  h4 {
+  font-weight: 400;
+        margin: 0;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  h2,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  h2 {
+  font-weight: 300;
+        line-height: 1em;
+        font-size: 22px;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step ,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  {
+  line-height: 24px;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  li,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  li {
+  margin: 0.5em 0;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  h2,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  h2 {
+  font-weight: 500;
+        margin: 1.5em 0 0 0;
+        font-size: 20px;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  h3,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  h3 {
+  font-weight: 500;
+        margin: 20px 0 0 0;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  aside,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  aside {
+  padding: 0.5em 1em;
+        margin: 2em 0;
+        border-left: 4px solid;
+}
+
+:host-context(google-codelab:not([theme="minimal"])) google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  aside p,.google-codelab-step-0  :host-context(google-codelab:not([theme="minimal"])) google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  aside p {
+  margin: 0.5em 0;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  aside.note,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  aside.note, google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  aside.notice,.google-codelab-step-0   google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  aside.notice {
+  border-color: #fca;
+        background: #fed;
+        color: #842;;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  aside.tip,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  aside.tip, google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  aside.special,.google-codelab-step-0   google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  aside.special {
+  border-color: #6a6;
+        background: #ded;
+        color: #464;;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  aside.warning,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  aside.warning {
+  border-color: #DB8A61;
+        background: #fed;
+        color: #842;;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  aside.callout {
+  background-color: #f4f8fa;
+        margin: 20px 0;
+        padding: 15px;
+        border-left: 3px solid #4f7dc9;
+        font-size: 14px;
+        line-height: 1.5;;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  aside.callout b {
+  color: #4f7dc9;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  ul.checklist {
+  list-style: none;
+        padding: 0 0 0 1em;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  ul.checklist li {
+  padding-left: 24px;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAWlBMVEUAAAAxokwwoks1pFAxokwxokwxokwxokwxokwnnkQnnkQnnkRou3y84cTS69cxokwonkQxokwnnkRqvH1VsmtluXlVsmsnnkRdtnLw+PIxokwqn0YinEAfmj3goh/UAAAAGnRSTlMA2CcEo+6AQT7+2IOBJxPl27alhoBnX15SCCe258UAAAB+SURBVEjH7dA5EoAgEERR3BcQ923Q+1/T0SqKlNbMouP3gxkRFvZpyQb64VSQT4mOcYc8mU5DnqIG8zXoozj4d34tML+YrET8XBFx4e2F4oAL4N7J3EUB/EfSUwD/zG3hvFdROu9XtL31vgXguQA9F6DnAvM8WbOHpkXYD3cBBCcPjtASYjwAAAAASUVORK5CYII=');
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  table code,.google-codelab-step-0  .instructions.google-codelab-step  h2 code {
+  background: white;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  .indented {
+  margin-left: 40px;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  strong {
+  font-weight: 600;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  paper-button a {
+  text-decoration: none;
+        color: inherit !important;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  paper-button.colored {
+  background-color: #0F9D58;
+        color: #fff;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  paper-button.red {
+  background-color: #DB4437;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  img {
+  max-width: 100%;
+        width: 100%;
+        vertical-align: bottom;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  table {
+  border-spacing: 0;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  td {
+  vertical-align: top;
+        border-bottom: 1px solid #CCC;
+        padding: 8px;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  table p {
+  margin: 0;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  h3.faq,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  h3.faq {
+  border-bottom: 1px solid #ddd;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  ul.faq,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  ul.faq {
+  list-style: none;
+        padding-left: 1em;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  .faq li,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  .faq li {
+  font-size: 1.1em;
+        margin-bottom: 0.8em;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  .faq a,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  .faq a {
+  color: inherit;
+        text-decoration: none;
+}
+
+google-codelab:not([theme="minimal"]) .google-codelab-step-0 .instructions.google-codelab-step  .faq a:hover,.google-codelab-step-0  google-codelab-stepgoogle-codelab:not([theme="minimal"]) .instructions.google-codelab-step  .faq a:hover {
+  text-decoration: underline;
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  .faq a[href*="cloud.google.com"] {
+  padding-left: 22px;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-image: url('data:image/png;base64,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');
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  .faq a[href*="stackoverflow.com"] {
+  padding-left: 22px;
+        background-size: 24px;
+        background-repeat: no-repeat;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATwAAAE8CAMAAABq2/00AAAA4VBMVEUAAACCg4aCg4aCg4bIj0P1fx/2hh+ojHCojHCojHD2ih/UjCn0eiD0eiD2hB/2hR/RjjDUjCnKkkPUjCnUjCn2ih/UjCnCllPCllP2ih/CllPCllPCllP2ih/CllPCllPCllP2ih/2ih/CllPCllP2ih/2ih/CllPUjCnCllPUjCn0eiD0eiD2ih+ojHD0eiDUjCn0eiD0eiCojHDUjCn0eiDUjCn0eiDUjCnUjCn0eiCojHD0eiCojHD2ih+ojHD2ih+ojHCojHCdiXaViHuCg4aojHD0eiDCllPUjCn2ih8XYwy7AAAARXRSTlMAv0CAEEAQv4BA7++/gCBQQN8wIIDPv2Dfv5+PUDDPryCAcO+/r49wn4Bg79/frJ9QcGDPr6+Pj3DPz2AwIJ9wYOaPVDAbIL/gAAAGhElEQVR42uzbsYrCQBDG8WmyxaJJlcIixQmxMSIRgiBB7Bbm/R/oPAnH3e0SxwSvyf/3DLt8zDeMAAAAAAAAAAAAAAAAAAAAAAAAAAAA4F9k7Xm1Xwlek53WqyY87AVWfbHumvCTE5hkIZYJTFyIrQU2+xA5CmxWIULcWq1DTGBzCrFcMDluC4ENcTtDEyKdwKYLkYuAuH27ggFtuj7ETgLiNo0B7Z3c1YnNMUQaWbTC6/W1uKUPHbha7wr60GnP7ot3YpGHWCsL5Wod1JP70LMsU+H12424nfDsBj4XgzMD2kN20F82YtDSh965nf61JW7Nzy7iKwY067OLlfJcw/qx1KQPQ9zSh1aaVtGHGnxoUummrB97WZhSk3byRM/6UST3mpQRtwZbTTo4GXdhQLvbaNJVxnX0oSMftyBuDQpN8o4BzaDWpFrG5KwfH5zXpJuMCfShox83pw812GnSxrx+XPI5hjvowF7ttawfB5km+Yq4nf5xS84x5lR7nGPMqfaI2znVHgPajGqPc4w51R7nGJ/sm29P2zAQh49h1kJgJHGWlrbQItAIebNO67owadpgwOzv/4Wm8S8NLsXxGSTu/HyEk/O78+McRu0FH4pQe2EdA6P2wjoGRu2FdotQe2EdA6P2wjoGRu2FdotQe+GChlF7DNcxKulN7bFbx4h1lPlSe+x8aKK1Tqae1B6zdYxM35BLP2qP1TqGjPQdmfCi9ji125l+ICp9qD1G6xixXiSPPag9PusYiW5SCLza49JuK/2YKEOrPSYXNBFpkyTGqj0e6xiFXkoukWqPwzpGrJ8iEyi1x8GHnuknSUqU2qO/jlHpVeQpwhB8oL6OISK9mkK4qz3q7bbQzxFV7mqP9jpGqi1IYme1R3sdI060BTPpaAiot9ss0hZkwk3tUb+gyUJbkEzd1B55HxqfaQvy1Ent0V/HKCNtwVy0NwSfGPhQMdcWRJWD2uOwjiFzbcFZ3F7tsVjHmDqMLTZqj3S7bTm2RJloZwh2maxjyJnd2NJS7XFZx7AcW2QrtUe93dZUDmOLjdrbaTTa7e9fNgj1i7ZjS9lK7dU+dPvzzgaRZ8elpPZji73a2/j749vOLuWytRtbCmmv9jghLMcWuw936zfwwnZssTAEexw+VidTmstn1N4Wr2/2gcrBlO6HY3eHKNqPLYfh2FmPLeZ/aXvh2D1Q2o0tYkHt8ZxQliIybTm2NNXex30IWI8tcePDPYSAywPv+61w7NwfeHfJHrvJS44tSQmUGan+oCfAgTi3fOCly1D952A4eqkH3gTocqDuOT5NX2JsmQJZhFrkaHwy8fzAmwNdeuoRRgQiTakEugyUSR2B+LFlDoTpK4M6AvH/pUUC6JIqAyMCMQ+8pMe8E2XgGIFlxKxbAIyVgUUEWj/wUh6QAZQBIgJlzqlbQKwMUBE4Tdh0C4ChMsBFoMgiJt2ivpvVoCNQznh0CxDKAB2B9dgSA2l6ygAbgfUDbwG0GSgDPxEo5tS7xYq7GT4CU8Im6pbRsNkxMBFIex5ezqQ3qM8fPgL5kZ6Mj1QNLgKpR90y4tNjpbxFID+ExwjsAUN8ReAYmOIjAlmePF8RyLHv+orAPgScI3AIb531tQZ/XjECR3DL5VoTeDOsXTVYf8UIFHDLu6sm8GZAFA8ZgccQimcgLCPwNBRvOROLCExD8Z4mXR2BRxCK5+wCx6F47hHYC8Vzj8BJKJ5zBPYhFM85Agf0i3dx3ulcdLubm5e+I3BEv3id65r7Ov70EoGCV/EW+NrpdLu/cHWkX7zz65pn6hiK9689O8hJKIaiMCxK0nYzTBgSYxDs/pekiTohEq/v0eRKv28J/+zkXMbrF2IdxQvEC3ScOF7r6+3LrtZDa1vxVinfHaeId+qjTBCv9kGO4i1XJoi365/EWxCv9EF24i1XJ4jXv4iXKd7p/uNt+yjt/uO1PspZvOVmmGcPrZ1q3ZUi3qoDaNva4WYdj5PFu2nHMm+8nzqKF4y3vuOreL923PcrqngRz6291FrKXrxbdWzifXB6iydehHh5iDco3maQpxnivQ2yEU888cQLEi8R8cSLES8R8cSLES8R8cSLES8R8cSLES8R8QbFexzkPEO86xxA4on3F+LlIZ54QeLlIZ54QeLlIZ54QeLlId6qeOk8/BviiRciXibiiRciXibiiRciXibiiRciXibiiQcAAAAAAAAAAAAAAAAAwHTeAe21evvWi2VXAAAAAElFTkSuQmCC');
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  .faq a[href*="support.google.com/webmasters/"] {
+  padding-left: 24px;
+        background-size: 24px;
+        background-repeat: no-repeat;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAolBMVEUAAADW1tbW1tZ6enrQ0dJ6enrMzMzq6+zq6+x6enru7+/m5+ju7+/m5+j////S09REi/XW1tbm5+ju7+9PT0/Q0dK8vLxGjfVZWVlNTU16enrMzMzIyMj09PS/0uuSkpJpaWmbm5tim/e0tLSEhIStx+3e3+GsrKxwcHBZk/dPk/R1p/KPtu/U3eqmpqZlZWVfmO5woeqHreWvwN6nu9qLi4vZSE73AAAADnRSTlMAEcxmzO7MzDMz7u6IiHn/rpYAAALMSURBVHja7dXpjtowFIZhUkqZlSV1ncQdEsK+zD7T+7+1xjTiwxVOAmeORyP5+2UspPchEtDy8/Pz8/Pz8/M7cZeduHKdyxbL0FfVAMUraHdUHUB12i22tZWqBRSDgKFfC4CApV8PgIClXw/gE6hyTd/lAR7gAV8fEHwbWtc/ul/WfQ8IfQKAIECfCoCA3sdq+nQB+nQABIQ+CQABtY9Z+lQB+gwACBj6AFAE6DM9AL0fAalPB/yGgNAfntwHAAJKnwCAwNLneQAAVAvM/ttzVLlB4z2/A6AFVoDRf43IfewVgGKNAG/Uvrl39BsCXqh9cy8nA/51tmk63+jDZp6m9wTA4DzANiyW6lOqTxAMHAD22XASReuwpKDvELCNookBGJwx9E8B3OvsQp8e9GmOviNANA/Dh4k+TApBukHfFSBa7/I7whqf3xWA/gOAoU8DDJwBCHk+wIAw9CsAPw/W++CFB/MAD/hCgL59PXPS8toRYKHEndkTauEQIIUQ0hToG2eAXOicKdBXmSPAo9CTpkDo5U4Ad6IEGILy0gFgFJctCACIh/yATABwIChvVyE3IBR7AAQAiOmIGZADAMEBQMkRL+AJAAgOALGUI07AQgBgCPb3uRbwAaYAGAIAZlIL2AA5AIYAgJXUAjaAAsAQADCWO4EjAAQGQAvYAUsDsDQAeuwAMZvu89PZ/jZhBmQCi2dl60+MPiMAf8UgZEUpK/LoJ4oX0C9LIIyF0U8yXkBPVCzRWzIDZjX9sWQG9Kv7ScYN6KnKfizZAf2qfpLzA3p5RV9JboDeytp/kk4Ao5WtP+UFQKCO9sdTSQQ03+OR/kxKdgAWZv/11VI6AWBmP5HSNQD5zwQknwxIqIBu468hBgDqNYCuFXBDASSNAbdWQHB1PiBpDLgOWtZdXPEDri/QswjYAOjbF9x0OQHd26Dl5+fn5+fn5+dn7i/3LEaKJNV/0wAAAABJRU5ErkJggg==');
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  .faq a[href*="developer.android.com"],.google-codelab-step-0  .instructions.google-codelab-step  .faq a[href*="android-developer"] {
+  padding-left: 20px;
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAAq1BMVEX///+lyjmfxyGhyCqkyjakyTP+/vuiyS7z+OWlyjKgxyTX57ChyCfa6bTx9uLy9+Sz0l6szk/D24Tt9NrN4ZnK4JSiyCyexh34+/D6/PTp8dPh7cjf7L7k78vc6rnW5qzU5ajS5KPP4p+21GWnzD3F3Yi813Kx0ViqzUWexhr8/vjv9d7Z6LKy0lyZxADh7cLA2n2rzkr1+erJ35C61m6uz1KcxRHn8M6/2XgEePWtAAACr0lEQVRo3u3Z2XKiQBiG4Y9ebNO2aCCyzOC+7zH7/V/ZRJZQZaJpWnKS4TlJUItXbX4pFJXK71DTusvccI6z5oMSAutdhDP2uzpK4CxwxsRBGYJdA19qLAOU4s4LkyUN7G4Ude2glmzuRihHKDqAPZhNuJRKSckms37rvctrKMnG728l5cxKMU7JuCF7KEvf87h1gnu0iXK4B2p9Sc3dUgZNMusMLvu42r20LiBXT8JMWRepN1xlGu+fK8/6xFPxwsvH697/eP/j7uDTOvB+dxwX/AaM2SQ+6icrYHDyGmgfWE3irNeCqTaPAwcArydroboAbuMAb8NQRNJn20SYtHK8HaKZzoffhZl5tlNxsD5PsnUQ2b9jwwnO35WvRo3lN/o2TDwKS5M3gokF0w2wZxgIlpY2FpgsgdQPkLXJQar0A/LVIDB6Idp2GxQQrJI/rbq2Voijlc5S9LZs8uYCqBVyXLTZhLW/fSn3hDMmZAQ05I020gT2PmeM+w4uGpLksFs+oEEtbaqJVnpUkz4uyebf6xQK0CY6XjoSC1xQ9/PPr4KB52zuvTrOa5EssC0auM0C0tYKtI0DqgpUgSpQBapAFfifAj90Tn5YZoGnooH8eutB56KDDosGhlTrYiTyk0epVdFAKJLn9rLHRSNfcE4tF0UDcAXlXPhDfGPtjGejEMUDCEdPY8eFHoOADvPAxiDQLBBQkUHAJfoB34UBS/9CfAETe6lZYKZft/QIFe94vicRy7tcvKOkB0PhYOo4zlNWYNvjpjOdZwU+O24OQlynK62EGCF2J9IbpIsy/P0I3CHW+Qj8qQJVoAr8VOCx3EB+YvDSwIDmXzaW4oZZseU6Lfr5aaAUPT8uyPuT33VeIpRkI5RHyRQfHEKFUj2UJuh1GjaQsxudKECl8jv8A6GtQkKSkMLrAAAAAElFTkSuQmCC');
+}
+
+.google-codelab-step-0 .instructions.google-codelab-step  h3 > a[href*="github"],.google-codelab-step-0  .instructions.google-codelab-step  h3 > a[href*="github"]:visited {
+  color: black;
+        text-decoration: none;
+        padding-left: 24px;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        background-image: url('data:image/png;base64,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');
+}
+
+.google-codelab-step-0  pre,.google-codelab-step-0   code {
+  font-family: 'Source Code Pro', Helvetica, Arial;
+        font-size: inherit;
+        border-radius: 3px;
+        overflow-x: auto;;
+}
+
+.google-codelab-step-0  code {
+  color: #333;
+        background-color: rgba(0, 0, 0, 0.08);
+        padding: 0.1em 0.3em;
+}
+
+.google-codelab-step-0  pre {
+  display: block;
+        color: white;
+        background-color: #28323f;
+        padding: 14px;
+        -webkit-text-size-adjust: none;
+        line-height: 1.4;
+}
+
+.google-codelab-step-0  pre > code {
+  padding: 0;
+        background-color: transparent;
+}
+
+.google-codelab-step-0  code em {
+  color: #97C8F2;
+}
+
+.google-codelab-step-0  pre .str,.google-codelab-step-0   code .str {
+  color: #65B042;
+}
+
+.google-codelab-step-0  pre .kwd,.google-codelab-step-0   code .kwd {
+  color: #E28964;
+}
+
+.google-codelab-step-0  pre .com,.google-codelab-step-0   code .com {
+  color: #AEAEAE; font-style: italic;
+}
+
+.google-codelab-step-0  pre .typ,.google-codelab-step-0   code .typ {
+  color: #89bdff;
+}
+
+.google-codelab-step-0  pre .lit,.google-codelab-step-0   code .lit {
+  color: #3387CC;
+}
+
+.google-codelab-step-0  pre .pun,.google-codelab-step-0   code .pun {
+  color: #fff;
+}
+
+.google-codelab-step-0  pre .pln,.google-codelab-step-0   code .pln {
+  color: #fff;
+}
+
+.google-codelab-step-0  pre .tag,.google-codelab-step-0   code .tag {
+  color: #89bdff;
+}
+
+.google-codelab-step-0  pre .atn,.google-codelab-step-0   code .atn {
+  color: #bdb76b;
+}
+
+.google-codelab-step-0  pre .atv,.google-codelab-step-0   code .atv {
+  color: #65B042;
+}
+
+.google-codelab-step-0  pre .dec,.google-codelab-step-0   code .dec {
+  color: #3387CC;
+}</style><!-- Shady DOM styles for iron-icon --><style scope="iron-icon-1">.iron-icon-1 {
+  display: -ms-inline-flexbox;
+      display: -webkit-inline-flex;
+      display: inline-flex;-ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;-ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+        position: relative;
+
+        vertical-align: middle;
+
+        fill: currentcolor;
+        stroke: none;
+
+        width: 100%;
+        height: 100%;;
+}</style><style scope="iron-icon-0">.iron-icon-0 {
+  display: -ms-inline-flexbox;
+      display: -webkit-inline-flex;
+      display: inline-flex;-ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;-ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+        position: relative;
+
+        vertical-align: middle;
+
+        fill: currentcolor;
+        stroke: none;
+
+        width: 24px;
+        height: 24px;;
+}</style><!-- Shady DOM styles for iron-iconset-svg --><!-- Shady DOM styles for neon-animated-pages --><style scope="neon-animated-pages">neon-animated-pages {
+  display: block;
+        position: relative;
+}
+
+neon-animated-pages  > * {
+  position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+}
+
+neon-animated-pages  > :not(.iron-selected):not(.neon-animating) {
+  display: none !important;
+}
+
+neon-animated-pages  > .neon-animating {
+  pointer-events: none;
+}</style><!-- Shady DOM styles for slide-from-right-animation --><!-- Shady DOM styles for slide-from-left-animation --><!-- Shady DOM styles for slide-right-animation --><!-- Shady DOM styles for slide-left-animation --><!-- Shady DOM styles for app-header-layout --><style scope="app-header-layout-0">.app-header-layout-0 {
+  display: block;
+        
+        position: relative;
+        z-index: 0;
+}
+
+.app-header-layout-0  > app-header {
+  position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+        z-index: 1;
+}
+
+.app-header-layout-0[has-scrolling-region] {
+  height: 100%;
+}
+
+.app-header-layout-0[has-scrolling-region]  > app-header {
+  position: absolute;
+}
+
+.app-header-layout-0[has-scrolling-region] > #contentContainer.app-header-layout {
+  position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+}
+
+.app-header-layout-0[fullbleed] {
+  display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+}
+
+.app-header-layout-0[fullbleed] > #contentContainer.app-header-layout {
+  display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;-ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px;
+}
+
+.app-header-layout-0 #contentContainer.app-header-layout {
+  position: relative;
+        z-index: 0;
+}</style><!-- Shady DOM styles for app-drawer --><style scope="app-drawer-0">.app-drawer-0 {
+  position: fixed;
+        top: -120px;
+        right: 0;
+        bottom: -120px;
+        left: 0;
+
+        visibility: hidden;
+
+        transition: visibility 0.2s ease;
+}
+
+.app-drawer-0[opened] {
+  visibility: visible;
+}
+
+.app-drawer-0[persistent] {
+  width: 256px;
+}
+
+.app-drawer-0[persistent][position=left] {
+  right: auto;
+}
+
+.app-drawer-0[persistent][position=right] {
+  left: auto;
+}
+
+.app-drawer-0 #contentContainer.app-drawer {
+  position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+
+        width: 256px;
+        padding: 120px 0;
+
+        transition: 0.2s ease;
+        transition-property: -webkit-transform;
+        transition-property: transform;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+
+        background-color: #FFF;background: #f5f5f5;
+}
+
+.app-drawer-0[position=right] > #contentContainer.app-drawer {
+  right: 0;
+        left: auto;
+
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+}
+
+.app-drawer-0[swipe-open] > #contentContainer.app-drawer::after {
+  position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+
+        visibility: visible;
+
+        width: 20px;
+
+        content: '';
+}
+
+.app-drawer-0[swipe-open][position=right] > #contentContainer.app-drawer::after {
+  right: 100%;
+        left: auto;
+}
+
+.app-drawer-0[opened] > #contentContainer.app-drawer {
+  -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+}
+
+.app-drawer-0 #scrim.app-drawer {
+  position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        transition: opacity 0.2s ease;
+        -webkit-transform: translateZ(0);
+        transform:  translateZ(0);
+
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.5);
+}
+
+.app-drawer-0[opened] > #scrim.app-drawer {
+  opacity: 1;
+}
+
+.app-drawer-0[opened][persistent] > #scrim.app-drawer {
+  visibility: hidden;
+        
+
+        opacity: 0;
+}</style><!-- Shady DOM styles for iron-media-query --><!-- Shady DOM styles for app-drawer-layout --><style scope="app-drawer-layout-0">.app-drawer-layout-0 {
+  display: block;
+}
+
+.app-drawer-layout-0[fullbleed] {
+  position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+}
+
+.app-drawer-layout-0 #contentContainer.app-drawer-layout {
+  position: relative;
+
+        height: 100%;
+
+        transition: none;
+}
+
+.app-drawer-layout-0 #contentContainer.app-drawer-layout:not(.narrow)  [drawer-toggle] {
+  display: none;
+}</style><!-- Shady DOM styles for paper-button --><style scope="paper-button-0">.paper-button-0 {
+  display: block;
+        position: relative;
+}
+
+.paper-button-0[elevation="1"] {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                  0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.paper-button-0[elevation="2"] {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 10px 0 rgba(0, 0, 0, 0.12),
+                  0 2px 4px -1px rgba(0, 0, 0, 0.4);
+}
+
+.paper-button-0[elevation="3"] {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0 3px 5px -1px rgba(0, 0, 0, 0.4);
+}
+
+.paper-button-0[elevation="4"] {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                  0 3px 14px 2px rgba(0, 0, 0, 0.12),
+                  0 5px 5px -3px rgba(0, 0, 0, 0.4);
+}
+
+.paper-button-0[elevation="5"] {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+                  0  6px 30px 5px rgba(0, 0, 0, 0.12),
+                  0  8px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.paper-button-0 {
+  display: -ms-inline-flexbox;
+      display: -webkit-inline-flex;
+      display: inline-flex;-ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;-ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+        min-width: 5.14em;
+        margin: 0 0.29em;
+        background: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+        font: inherit;
+        text-transform: uppercase;
+        outline-width: 0;
+        border-radius: 3px;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        z-index: 0;
+        padding: 0.7em 0.57em;font-family: 'Roboto', 'Noto', sans-serif;
+      -webkit-font-smoothing: antialiased;;
+}
+
+.paper-button-0[hidden] {
+  display: none !important;
+}
+
+.paper-button-0[raised].keyboard-focus {
+  font-weight: bold;;
+}
+
+.paper-button-0:not([raised]).keyboard-focus {
+  font-weight: bold;;
+}
+
+.paper-button-0[disabled] {
+  background: #eaeaea;
+        color: #a8a8a8;
+        cursor: auto;
+        pointer-events: none;;
+}
+
+.paper-button-0[animated] {
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.paper-button-0 paper-ripple.paper-button {
+  color:;
+}</style><!-- Shady DOM styles for iron-overlay-backdrop --><!-- Shady DOM styles for paper-dialog --><style scope="paper-dialog-0">.paper-dialog-0 {
+  display: block;
+        margin: 24px 40px;
+
+        background: #ffffff;
+        color: #212121;font-family: 'Roboto', 'Noto', sans-serif;
+      -webkit-font-smoothing: antialiased;
+
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+                  0  6px 30px 5px rgba(0, 0, 0, 0.12),
+                  0  8px 10px -5px rgba(0, 0, 0, 0.4);;
+}
+
+.paper-dialog-0  > * {
+  margin-top: 20px;
+        padding: 0 24px;
+}
+
+.paper-dialog-0  > .no-padding {
+  padding: 0;
+}
+
+.paper-dialog-0  > *:first-child {
+  margin-top: 24px;
+}
+
+.paper-dialog-0  > *:last-child {
+  margin-bottom: 24px;
+}
+
+.paper-dialog-0  h2 {
+  position: relative;
+        margin: 0;font-family: 'Roboto', 'Noto', sans-serif;
+      -webkit-font-smoothing: antialiased;white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 28px;;
+}
+
+.paper-dialog-0  .buttons {
+  position: relative;
+        padding: 8px 8px 8px 24px;
+        margin: 0;
+
+        color: #3f51b5;display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;-ms-flex-pack: end;
+      -webkit-justify-content: flex-end;
+      justify-content: flex-end;
+}</style><!-- Shady DOM styles for paper-fab --><style scope="paper-fab-0">.paper-fab-0 {
+  display: block;
+        position: relative;
+}
+
+.paper-fab-0[elevation="1"] {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                  0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.paper-fab-0[elevation="2"] {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 10px 0 rgba(0, 0, 0, 0.12),
+                  0 2px 4px -1px rgba(0, 0, 0, 0.4);
+}
+
+.paper-fab-0[elevation="3"] {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0 3px 5px -1px rgba(0, 0, 0, 0.4);
+}
+
+.paper-fab-0[elevation="4"] {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                  0 3px 14px 2px rgba(0, 0, 0, 0.12),
+                  0 5px 5px -3px rgba(0, 0, 0, 0.4);
+}
+
+.paper-fab-0[elevation="5"] {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+                  0  6px 30px 5px rgba(0, 0, 0, 0.12),
+                  0  8px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.paper-fab-0 {
+  display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;-ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;-ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+
+        background: #1976d2;
+        border-radius: 50%;
+        box-sizing: border-box;
+        color: #ffffff;
+        cursor: pointer;
+        height: 56px;
+        min-width: 0;
+        outline: none;
+        padding: 16px;
+        position: relative;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        width: 56px;
+        z-index: 0;
+
+        
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;;
+}
+
+.paper-fab-0 [hidden].paper-fab {
+  display: none !important;
+}
+
+.paper-fab-0[mini] {
+  width: 40px;
+        height: 40px;
+        padding: 8px;;
+}
+
+.paper-fab-0[disabled] {
+  color: #9e9e9e;
+        background: #e0e0e0;;
+}
+
+.paper-fab-0 iron-icon.paper-fab {
+  ;
+}
+
+.paper-fab-0 span.paper-fab {
+  width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+}
+
+.paper-fab-0.keyboard-focus {
+  background: #1976d2;
+}</style><!-- Shady DOM styles for paper-icon-button --><style scope="paper-icon-button-0">.paper-icon-button-0 {
+  display: inline-block;
+        position: relative;
+        padding: 8px;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        z-index: 0;
+        line-height: 1;
+
+        width: 40px;
+        height: 40px;
+
+        
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+
+        
+        box-sizing: border-box !important;;
+}
+
+.paper-icon-button-0 #ink.paper-icon-button {
+  color: #212121;
+        opacity: 0.6;
+}
+
+.paper-icon-button-0[disabled] {
+  color: #9b9b9b;
+        pointer-events: none;
+        cursor: auto;;
+}
+
+.paper-icon-button-0:hover {
+  ;
+}
+
+.paper-icon-button-0 iron-icon.paper-icon-button {
+  ;
+}</style><!-- Shady DOM styles for paper-menu --><style scope="paper-menu-0">.paper-menu-0 .selectable-content.paper-menu  > .iron-selected {
+  font-weight: bold;;
+}
+
+.paper-menu-0 .selectable-content.paper-menu  > [disabled] {
+  color: #9b9b9b;
+}
+
+.paper-menu-0 .selectable-content.paper-menu  > *:focus {
+  position: relative;
+        outline: 0;;
+}
+
+.paper-menu-0 .selectable-content.paper-menu  > *:focus:after {
+  position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+        background: currentColor;
+        opacity: 0.12;
+        content: '';
+        pointer-events: none;;
+}
+
+.paper-menu-0 .selectable-content.paper-menu  > *[colored]:focus:after {
+  opacity: 0.26;
+}
+
+.paper-menu-0 {
+  display: block;
+        padding: 8px 0;
+
+        background: #ffffff;
+        color: #212121;cursor: pointer;
+    background: inherit;
+    padding: 0;
+}</style><!-- Shady DOM styles for paper-item --><style scope="paper-item-0">.paper-item-0,.paper-item-0  .paper-item.paper-item {
+  display: block;
+        position: relative;
+        min-height: 48px;
+        padding: 0px 16px;
+}
+
+.paper-item-0 .paper-item.paper-item {
+  font-family: 'Roboto', 'Noto', sans-serif;
+      -webkit-font-smoothing: antialiased;
+
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+        border:none;
+        outline: none;
+        background: white;
+        width: 100%;
+        text-align: left;
+}
+
+.paper-item-0[hidden],.paper-item-0  .paper-item[hidden].paper-item {
+  display: none !important;
+}
+
+.paper-item-0.iron-selected,.paper-item-0  .paper-item.iron-selected.paper-item {
+  font-weight: bold;;
+}
+
+.paper-item-0[disabled],.paper-item-0  .paper-item[disabled].paper-item {
+  color: #9b9b9b;;
+}
+
+.paper-item-0:focus,.paper-item-0  .paper-item.paper-item:focus {
+  position: relative;
+        outline: 0;;
+}
+
+.paper-item-0:focus:before,.paper-item-0  .paper-item.paper-item:focus:before {
+  position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+        background: currentColor;
+        content: '';
+        opacity: 0.12;
+        pointer-events: none;;
+}
+
+.paper-item-0 {
+  display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;-ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;font-family: 'Roboto', 'Noto', sans-serif;
+      -webkit-font-smoothing: antialiased;
+
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;;
+}</style><!-- Shady DOM styles for google-codelab --><style scope="google-codelab-0">.google-codelab-0 .layout.google-codelab {
+  display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+}
+
+.google-codelab-0 .layout.horizontal.google-codelab {
+  display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+}
+
+.google-codelab-0 .layout.vertical.google-codelab {
+  display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+}
+
+.google-codelab-0 .layout.center.google-codelab {
+  -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+}
+
+.google-codelab-0 .layout.center-center.google-codelab {
+  -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;-ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+}
+
+.google-codelab-0 .flex.google-codelab {
+  -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px;
+}
+
+.google-codelab-0 .two.google-codelab {
+  -ms-flex: 2;
+      -webkit-flex: 2;
+      flex: 2;
+}
+
+.google-codelab-0 .end-justified.google-codelab {
+  -ms-flex-pack: end;
+      -webkit-justify-content: flex-end;
+      justify-content: flex-end;
+}
+
+.google-codelab-0 .end.google-codelab {
+  -ms-flex-align: end;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+}
+
+.google-codelab-0 .justified.google-codelab {
+  -ms-flex-pack: justify;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+}
+
+.google-codelab-0 .self-center.google-codelab {
+  -ms-align-self: center;
+      -webkit-align-self: center;
+      align-self: center;
+}
+
+.google-codelab-0 .wrap.google-codelab {
+  -ms-flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.google-codelab-0 {
+  display: block;
+  line-height: 24px;
+}
+
+.google-codelab-0[theme="minimal"] {
+  position: relative;
+}
+
+.google-codelab-0 #headerpanel.google-codelab {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  margin-left: 256px;
+}
+
+.google-codelab-0 #headerpanel[narrow].google-codelab {
+  margin-left: 0;
+}
+
+.google-codelab-0 app-drawer-layout.google-codelab {
+  overflow-x: hidden;
+}
+
+.google-codelab-0 .drawer-content-wrapper.google-codelab {
+  padding: 16px;
+}
+
+.google-codelab-0 #main-content.google-codelab {
+  background: #e0e0e0;
+}
+
+.google-codelab-0 #pages.google-codelab {
+  top: 64px;
+}
+
+.google-codelab-0 #controls[narrow].google-codelab {
+  width: 100%;
+}
+
+.google-codelab-0 #main-toolbar.google-codelab {
+  background: #1e88e5;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 16px;
+}
+
+.google-codelab-0 #main-toolbar.google-codelab .title.google-codelab {
+  margin: 0 8px;
+  flex: 1;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.google-codelab-0 paper-icon-button[icon=menu].google-codelab {
+  margin-right: 0 !important;
+}
+
+.google-codelab-0 paper-fab.google-codelab {
+  ;
+  flex-shrink: 0;
+}
+
+.google-codelab-0[theme="minimal"] #resumeDialog.google-codelab > *.google-codelab {
+  margin-top: 20px;
+  padding: 0 24px;
+}
+
+.google-codelab-0[theme="minimal"] #resumeDialog.google-codelab .buttons.google-codelab {
+  padding: 8px 8px 8px 24px;
+  margin: 0;
+}
+
+.google-codelab-0 .countdown.google-codelab iron-icon.google-codelab {
+  margin-right: 3px;
+}
+
+.google-codelab-0:not([theme="minimal"]) #drawer.google-codelab .countdown.google-codelab {
+  display: none;
+}
+
+.google-codelab-0[theme="minimal"] #drawer.google-codelab .countdown.google-codelab {
+  padding: 0 16px 16px 16px;
+  font-style: italic;
+  color: #2196f3;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+}
+
+.google-codelab-0 #controls.google-codelab {
+  position: fixed;
+  right: 0;
+  bottom: 16px;
+  padding: 0 16px;
+  width: calc(100% - 256px); 
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.google-codelab-0 #controls.google-codelab .fabs.google-codelab {
+  max-width: calc(800px + 175px);
+  margin: 0 auto;
+}
+
+.google-codelab-0 .navbutton.google-codelab {
+  pointer-events: initial;
+}
+
+.google-codelab-0 .navbutton.prevbutton.google-codelab {
+  transition: transform 300ms ease-in-out;
+}
+
+.google-codelab-0 .navbutton.prevbutton[disabled].google-codelab {
+  background:;
+  color: white;
+  transform: scale(0);
+}
+
+.google-codelab-0 .navbutton.donebutton.google-codelab {
+  background: #0f9d58;
+}
+
+.google-codelab-0 .toc-item.google-codelab {
+  font-size: 14px;
+  color: #9e9e9e;
+  overflow: hidden;
+  border-radius: 4px;
+  padding: 6px 16px;
+  box-sizing: content-box;
+}
+
+.google-codelab-0 .toc-item.google-codelab i.google-codelab {
+  display: inline-block;
+  font-style: normal;
+  width: 24px;
+  min-width: 24px;
+  background: #fff;
+  border-radius: 50%;
+  text-align: center;
+  height: 24px;
+  vertical-align: middle;
+  line-height: 24px;
+  border: 2px solid #bdbdbd;
+  margin-right: 8px;
+  font-weight: 400;
+}
+
+.google-codelab-0 .toc-item.google-codelab i.google-codelab::before,.google-codelab-0  .toc-item.google-codelab i.google-codelab::after {
+  content: '';
+  display: block;
+  border-left: 1px solid #bdbdbd;
+  width: 0;
+  height: 44px;
+  z-index: 1;
+  margin-top: 1px;
+}
+
+.google-codelab-0 .toc-item.google-codelab i.google-codelab::before {
+  margin-top: -44px;
+  margin-left: 11px;
+}
+
+.google-codelab-0 .toc-item.google-codelab i.google-codelab::after {
+  margin-left: 11px;
+}
+
+.google-codelab-0 .toc-item.completed.google-codelab {
+  color: #212121;
+}
+
+.google-codelab-0 .toc-item.iron-selected.google-codelab {
+  color: #212121;
+  background-color: #e0e0e0;
+  font-weight: 600;
+}
+
+.google-codelab-0 .toc-item.completed.google-codelab i.google-codelab,.google-codelab-0  .toc-item.completed.google-codelab i.google-codelab::before,.google-codelab-0  .toc-item.completed.google-codelab i.google-codelab::after,.google-codelab-0  .toc-item.iron-selected.google-codelab i.google-codelab,.google-codelab-0  .toc-item.iron-selected.google-codelab i.google-codelab:before {
+  border-color: #2196f3;
+}
+
+.google-codelab-0 .toc-item.google-codelab:first-of-type i.google-codelab::before,.google-codelab-0  .toc-item.google-codelab:last-of-type i.google-codelab::after {
+  display: none;
+}
+
+.google-codelab-0 #metadata.google-codelab {
+  color: #777;
+  font-size: 0.7em;
+  flex: 0 0 80px;
+}
+
+.google-codelab-0 #feedback.google-codelab a.google-codelab {
+  color: currentcolor;
+}
+
+@media (min-width: 641px) {
+.google-codelab-0:not([theme="minimal"]) #pages.google-codelab {
+  margin-top: 32px;
+}
+
+.google-codelab-0 #controls.google-codelab {
+  padding: 0 32px;
+    bottom: 32px;
+}
+
+}</style><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  
+  <title>Credit Risk Case - Part III</title>
+  <script async="" src="./Credit Risk Case - Part III_files/analytics.js.download"></script><script src="./Credit Risk Case - Part III_files/webcomponents-lite.js.download"></script>
+  <link rel="import" href="https://docs.qusandbox.com/elements/codelab.html">
+  <link rel="stylesheet" href="./Credit Risk Case - Part III_files/css">
+  <style is="custom-style">body:not([style-scope]):not(.style-scope) {
+  font-family: "Roboto",sans-serif;
+      background: #F8F9FA;
+}
+
+</style>
+  
+</head>
+<body class="fullbleed">
+
+  <google-codelab title="Credit Risk Case - Part III" environment="web" feedback-link="mailto:info@qusandbox.com" class="x-scope google-codelab-0"><iron-localstorage hidden="" class="style-scope google-codelab"></iron-localstorage><app-drawer-layout fullbleed="" class="style-scope google-codelab x-scope app-drawer-layout-0">
+    
+
+    <div id="contentContainer" class="style-scope app-drawer-layout" style="margin-left: 256px;">
+      <app-header-layout fullbleed="" class="style-scope google-codelab x-scope app-header-layout-0">
+    
+
+    
+
+    <div id="contentContainer" class="style-scope app-header-layout">
+      <div id="headerpanel" fixed="" class="style-scope google-codelab"><div id="main-toolbar" class="style-scope google-codelab"><div class="style-scope google-codelab"><template is="dom-if" strip-whitespace="" class="style-scope google-codelab"></template><paper-icon-button icon="arrow-back" class="style-scope google-codelab x-scope paper-icon-button-0" role="button" tabindex="0" aria-disabled="false"><iron-icon id="icon" class="style-scope paper-icon-button x-scope iron-icon-1"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="style-scope iron-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope iron-icon"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" class="style-scope iron-icon"></path></g></svg>
+    
+  </iron-icon></paper-icon-button><template is="dom-if" strip-whitespace="" class="style-scope google-codelab"></template></div><h3 class="title style-scope google-codelab">Credit Risk Case - Part III</h3><div title="Time remaining" class="countdown layout horizontal style-scope google-codelab" hidden=""><iron-icon icon="schedule" class="style-scope google-codelab x-scope iron-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="style-scope iron-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope iron-icon"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" class="style-scope iron-icon"></path></g></svg>
+    
+  </iron-icon><span class="style-scope google-codelab">0 min remaining</span></div></div></div><div id="main-content" class="style-scope google-codelab"><neon-animated-pages id="pages" class="style-scope google-codelab">
+    
+    
+    <google-codelab-step label="Introduction" duration="0" class="x-scope google-codelab-step-0 iron-selected"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">1</span>. <span class="style-scope google-codelab-step">Introduction</span></h2>
+        <h2>Description of the problem</h2>
+<p><a href="https://www.lendingclub.com/" target="_blank">Lending Club</a> strives to connect borrowers with investors through our online marketplace.</p>
+<p><strong><em>The goal is to predict the interest rates that Lending Club should use, based on previous borrowers data they have</em></strong>. Whether or not a client will repay a loan or have difficulty is a critical business need. In this project, we are going to see some models that the machine learning community can develop to help organizations like Lending Club.</p>
+<p>What you will build</p>
+<ul>
+<li>A neural network with tuned hyperparameters.</li>
+</ul>
+<h2>What you will learn</h2>
+<ul>
+<li><strong>Module 3: Hyperparameters tuning</strong></li>
+</ul>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Requirements" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">2</span>. <span class="style-scope google-codelab-step">Requirements</span></h2>
+        <p>The experimentation will be done in <a href="http://jupyter.org/" target="_blank">Jupyter Notebooks</a>, primarily in Python3.6. </p>
+<ul>
+<li>pandas</li>
+<li>numpy</li>
+<li>matplotlib</li>
+<li>seaborn</li>
+<li>scipy</li>
+<li>sklearn</li>
+</ul>
+<aside class="special"><p><strong>Note</strong>: All the packages and requirements are already installed in the Qusandbox environment, you don't need to install any packages if you run the project in the Qusandbox. </p>
+</aside>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Reading the data" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">3</span>. <span class="style-scope google-codelab-step">Reading the data</span></h2>
+        <p>In this project, we are going to use the Lending Club loan dataset. The provided file is a cleaned version of the original Lending Club dataset available at <a href="https://www.kaggle.com/wendykan/lending-club-loan-data/" target="_blank">Kaggle</a>. The files provided includes a file containing the description of  the features, <em>LCDataDictionary, </em> and the data file named <em>LendingClubLoan.csv.</em></p>
+<p>The original version of the dataset is about 230mb. The version provided is a subset of 9999 samples of the cleaned dataset. Let us first take a look at some of the features in the given dataset. The entire list can be found in the jupyter notebook.</p>
+<p><img style="max-width: 484.50px" src="./Credit Risk Case - Part III_files/e592e42d771812de.png"></p>
+<p>Here is a look at some of the entries in the dataset:</p>
+<p><img style="max-width: 624.00px" src="./Credit Risk Case - Part III_files/e8010a5ad33e4892.png"> </p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Hyperparameter tuning" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">4</span>. <span class="style-scope google-codelab-step">Hyperparameter tuning</span></h2>
+        <p>Most of the machine learning models can be (vaguely) considered as a non linear mathematical function with many parameters, which are called weights in the case of a neural network.</p>
+<p>Parameters of a neural network are the weights associated with the neurons that are actually involved in the calculations. Hyperparameters on the other hand are factors that determine how the model will be trained, like the number of iterations, the algorithms to be used, penalties to be applied and so on. These are the parameters that have to be decided by the quant/data scientist making the model.</p>
+<p>Neural networks have a lot of hyperparameters that show their immediate effects on the learning curve, so we will choose this as a means to study hyperparameters.<a href="http://localhost:8888/notebooks/project_sep12/notebook/Clustering_and_Building_Models_V2.ipynb#Neural-networks-have-a-lot-of-hyperparameters-that-show-their-immediate-effects-on-the-learning-curve,-so-we-will-choose-this-as-a-means-to-study-hyperparamters." target="_blank">¶</a></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Neural Network" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">5</span>. <span class="style-scope google-codelab-step">Neural Network</span></h2>
+        <p><strong>Artificial neural networks</strong> (<strong>ANN</strong>) are computing systems vaguely inspired by the biological neural networks that constitute animal brains. Such systems "learn" to perform tasks by considering examples, generally without being programmed with any task-specific rules.</p>
+<p>Neural networks can be used as classification models as well as regression(prediction) models.</p>
+<h2>Perceptron</h2>
+<p>A perceptron is a linear classifier, that can classify linearly separable data. </p>
+<p><img style="max-width: 624.00px" src="./Credit Risk Case - Part III_files/a4fc38ffb97cb0f3.png"></p>
+<p>A multilayer perceptron is called as a neural network. It is a combination of many linear classifiers that enables it to fit to non linearly separable data. The features are the inputs of the neural network. The circles here represent neurons in the neural network, each with its own weights (coefficients).</p>
+<p><img style="max-width: 624.00px" src="./Credit Risk Case - Part III_files/2b714edd71809c12.png"></p>
+<h2>Layers, Weights, and Backpropagation in Neural Networks</h2>
+<p>For our data set, the number of features are 16. Each layer between the input layer (where we enter the dataset) and output layer (where we obtain our predicted value) is called as a hidden layer of the neural network. Usually, but not always, higher number of layers tend to capture more nuances in the data and fit the training data better.</p>
+<p>When we pass in the labels(y) and the features(X) to a training model, the weights in these layers act as coefficients and multiply the value of the feature and ultimately gives out a single value (can be multi-dimensional output as well) at the output layer.</p>
+<p>This value is checked against the actual value or label that we pass, the difference in the actual and predicted value gives us a loss. This loss is then distributed back in all the layers to accommodate for it. This is done using various algorithms, most prominently <strong>back propagation algorithm</strong>. The rate at which these changes occur can be regarded as learning rate.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Hyperparameter tuning - Learning Rate" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">6</span>. <span class="style-scope google-codelab-step">Hyperparameter tuning - Learning Rate</span></h2>
+        <p>You can also think of a neural networks loss function as a surface, where each direction you can move in represents the value of a weight. Gradient descent is like taking leaps in the current direction of the slope, and the learning rate is like the length of the leap you take.</p>
+<p>The learning rate tells the gradient descent how much to move in that direction.</p>
+<p><img style="max-width: 624.00px" src="./Credit Risk Case - Part III_files/dfd44c99c36674a1.png"></p>
+<p>At really small rates and really large rates the optimization function may not converge at a minia.</p>
+<p><img style="max-width: 524.43px" src="./Credit Risk Case - Part III_files/be988585a91088a5.png"></p>
+<h2>Experimentation</h2>
+<p>We run our neural network model on several learning rates, keeping all other hyperparameters same.</p>
+<p><img style="max-width: 373.50px" src="./Credit Risk Case - Part III_files/fe55a29666fe3dd5.png"><img style="max-width: 477.15px" src="./Credit Risk Case - Part III_files/718f557d6182ff7c.png"></p>
+<ul>
+<li><h4>The graph of true values vs predictions show no trends at all. <strong>This means that the predicted values are nowhere related to the true values.</strong> For a really low learning rate, there wasn't any considerable learning in 300 iterations.<strong> This is due to really small learning rate of 0.00001, so the function could not find a minima.</strong></h4>
+</li>
+</ul>
+<p><img style="max-width: 526.99px" src="./Credit Risk Case - Part III_files/7a1de93cc115222f.png"></p>
+<ul>
+<li><h4>The graph of true values vs predictions lie on a line with slope of around 45 degrees. <strong>This means that the predicted values are almost same as the true values.</strong> Had they been identical, we would have seen a single line at 45 degree.<strong> For a learning rate of 0.01 the loss is considerably low.</strong></h4>
+</li>
+</ul>
+<p><img style="max-width: 527.72px" src="./Credit Risk Case - Part III_files/5e33b3260617e0e4.png"></p>
+<ul>
+<li><h4>The graph of true values vs predictions lie on a straight vertical line<strong>. This means that the model just predicted a single value for all inputs. This is a result of very very high learning rate of 0.5. Due to high rate, the gradient descent missed and overshot the minima.</strong></h4>
+</li>
+</ul>
+<p><img style="max-width: 546.50px" src="./Credit Risk Case - Part III_files/fecdd1d187cbfffc.png"></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Effect of learning Rate" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">7</span>. <span class="style-scope google-codelab-step">Effect of learning Rate</span></h2>
+        <p>At high learning rates, the learning curve does not show any improvement, at low rates, there is very gradual improvement, and at the optimal value of bout 0.001 the convergence is good.</p>
+<p><img style="max-width: 624.00px" src="./Credit Risk Case - Part III_files/cff9c3d691ac49c4.png"></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Hyperparameter tuning - Optimization algorithm" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">8</span>. <span class="style-scope google-codelab-step">Hyperparameter tuning - Optimization algorithm</span></h2>
+        <p>Now that we have selected the learning rate that yields lowest loss, let us see what effect does the optimization algorithm have on the model.</p>
+<p>An <strong>optimization algorithm</strong> is a procedure which is executed iteratively by comparing various solutions till an optimum or a satisfactory solution is found. Neural networks use various optimization algorithms to back propagate the losses.</p>
+<p>A few of the prominent ones provided by scikit-learn package iare Adam optimizer and SGD (Stochastic Gradient Descent).</p>
+<h2>Experimentation</h2>
+<p><img style="max-width: 322.50px" src="./Credit Risk Case - Part III_files/b5c9d0b14bdab6a7.png"></p>
+<p><img style="max-width: 624.00px" src="./Credit Risk Case - Part III_files/1f1e8837d2c28a9.png"></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Hyperparameter tuning - Regularization parameter" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">9</span>. <span class="style-scope google-codelab-step">Hyperparameter tuning - Regularization parameter</span></h2>
+        <p><strong>Regularization basically adds a penalty as model complexity increases. Regularization parameter (L2 alpha) penalizes all the parameters except intercept so that model generalizes the data and won't overfit and the parameters are not updated as drastically.</strong></p>
+<h2>Overfitting and Underfitting</h2>
+<p><strong>Overfitting</strong> refers to the fact that the model has fit the training data so well that it doesn't recognise outliers i.e. it has fit the noise in the training data as we. A more complex model usually tends to overfit. For example, a neural net with too many layers may fit to the training data very well but wont be able to generalize on testing or validation data set.</p>
+<p>Overfitting causes the model to not accept new samples readily, i.e, it doesn't generalize well while making predictions.</p>
+<p>Similarly there is <strong>underfitting</strong>, when the model is not able to provide a low loss even on the training data, let alone a testing dataset.</p>
+<p>The first figure shows a sample of underfitting, the second one is a good fit and the third one is overfitting. A higher degree polynomial is more complex than a linear model in the first case, hence it overfits.</p>
+<p><img style="max-width: 624.00px" src="./Credit Risk Case - Part III_files/8a1da6e8b80eefcd.png"></p>
+<h2>Experimentation</h2>
+<p>alpha - L2 regularizer value</p>
+<p><img style="max-width: 329.79px" src="./Credit Risk Case - Part III_files/40c38f6ba1c72273.png"></p>
+<h4><strong>High L2 penalty causes underfitting as it does not allow the model to train. So the L2 alpha values have to be low.</strong></h4>
+<p><img style="max-width: 585.50px" src="./Credit Risk Case - Part III_files/afcecb635979746.png"></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Hyperparameter tuning - Activation function" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">10</span>. <span class="style-scope google-codelab-step">Hyperparameter tuning - Activation function</span></h2>
+        <p>Activation functions are functions that introduce non linearities in the neural network. If we do not apply any non linearly, our entire network would be just one big linear function, only transforming the input from one layer to another.</p>
+<p>A Neural Network without Activation function would simply be a Linear regression Model, which has limited power as we already saw in the last lab. We want our Neural Network to not just learn and compute a linear function but something more complicated than that.</p>
+<p>ReLU or Rectified Linear Unit is the activation function we are using.</p>
+<p>Mathematically: <strong>A(x) = max(0,x)</strong></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Finalizing your model" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">11</span>. <span class="style-scope google-codelab-step">Finalizing your model</span></h2>
+        <h4><strong>The configuration of the neural network is referred to as its architecture. The architecture for our network is as follows</strong></h4>
+<p><img style="max-width: 283.50px" src="./Credit Risk Case - Part III_files/6ed92a1af189509f.png"></p>
+<p><img style="max-width: 624.00px" src="./Credit Risk Case - Part III_files/faa174b6527c1b2.png"></p>
+<p><img style="max-width: 624.00px" src="./Credit Risk Case - Part III_files/5c59d8db2ede58f4.png"></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Further Resources" duration="0" class="x-scope google-codelab-step-0"><div class="instructions style-scope google-codelab-step"><div class="inner style-scope google-codelab-step"><h2 id="title" class="style-scope google-codelab-step"><span class="style-scope google-codelab-step">12</span>. <span class="style-scope google-codelab-step">Further Resources</span></h2>
+        <h2>Kaggle competition</h2>
+<p><a href="https://www.kaggle.com/wendykan/lending-club-loan-data" target="_blank">https://www.kaggle.com/wendykan/lending-club-loan-data</a></p>
+
+
+      </div></div></google-codelab-step>
+  </neon-animated-pages><footer id="controls" class="style-scope google-codelab"><div class="fabs layout horizontal justified style-scope google-codelab"><paper-fab raised="" class="navbutton prevbutton style-scope google-codelab x-scope paper-fab-0" icon="chevron-left" title="Previous step" role="button" tabindex="-1" animated="" aria-disabled="true" elevation="0" style="pointer-events: none;" disabled=""><iron-icon id="icon" class="style-scope paper-fab x-scope iron-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="style-scope iron-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope iron-icon"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" class="style-scope iron-icon"></path></g></svg>
+    
+  </iron-icon><span class="style-scope paper-fab" hidden=""> </span></paper-fab><div class="style-scope google-codelab"><paper-fab icon="chevron-right" raised="" class="navbutton nextbutton style-scope google-codelab x-scope paper-fab-0" role="button" tabindex="0" animated="" aria-disabled="false" elevation="1" title="Start codelab"><iron-icon id="icon" class="style-scope paper-fab x-scope iron-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="style-scope iron-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope iron-icon"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" class="style-scope iron-icon"></path></g></svg>
+    
+  </iron-icon><span class="style-scope paper-fab" hidden=""> </span></paper-fab><template is="dom-if" strip-whitespace="" class="style-scope google-codelab"></template><template is="dom-if" strip-whitespace="" class="style-scope google-codelab"></template></div></div></footer></div>
+    </div>
+
+  </app-header-layout>
+    </div>
+
+    <app-drawer id="drawer" swipe-open="" class="style-scope google-codelab x-scope app-drawer-0" position="left" persistent="" opened="" style="touch-action: pan-y;">
+    
+
+    <div id="scrim" class="style-scope app-drawer" style=""></div>
+
+    <div id="contentContainer" class="style-scope app-drawer" style="">
+      <div class="drawer-content-wrapper layout vertical style-scope google-codelab" style="height:100%"><div class="flex style-scope google-codelab" style="overflow: auto;"><div title="Time remaining" class="countdown layout horizontal style-scope google-codelab" hidden=""><iron-icon icon="schedule" class="style-scope google-codelab x-scope iron-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="style-scope iron-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope iron-icon"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" class="style-scope iron-icon"></path></g></svg>
+    
+  </iron-icon><span class="style-scope google-codelab">0 min remaining</span></div><paper-menu id="toc" class="flex style-scope google-codelab x-scope paper-menu-0" role="menu" tabindex="0">
+    
+    
+
+    <div class="selectable-content style-scope paper-menu">
+      <paper-item class="toc-item style-scope google-codelab x-scope paper-item-0 iron-selected" role="option" tabindex="0" aria-disabled="false" aria-selected="true">
+    
+    
+
+    <i class="style-scope google-codelab">1</i><span class="style-scope google-codelab">Introduction</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">2</i><span class="style-scope google-codelab">Requirements</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">3</i><span class="style-scope google-codelab">Reading the data</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="0" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">4</i><span class="style-scope google-codelab">Hyperparameter tuning</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">5</i><span class="style-scope google-codelab">Neural Network</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">6</i><span class="style-scope google-codelab">Hyperparameter tuning - Learning Rate</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">7</i><span class="style-scope google-codelab">Effect of learning Rate</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">8</i><span class="style-scope google-codelab">Hyperparameter tuning - Optimization algorithm</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">9</i><span class="style-scope google-codelab">Hyperparameter tuning - Regularization parameter</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">10</i><span class="style-scope google-codelab">Hyperparameter tuning - Activation function</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">11</i><span class="style-scope google-codelab">Finalizing your model</span>
+  </paper-item><paper-item class="toc-item style-scope google-codelab x-scope paper-item-0" role="option" tabindex="-1" aria-disabled="false">
+    
+    
+
+    <i class="style-scope google-codelab">12</i><span class="style-scope google-codelab">Further Resources</span>
+  </paper-item><template is="dom-repeat" strip-whitespace="" class="style-scope google-codelab"></template>
+    </div>
+  </paper-menu></div><div id="metadata" class="style-scope google-codelab"><template is="dom-if" strip-whitespace="" class="style-scope google-codelab"></template><div id="feedback" class="style-scope google-codelab">
+              Did you find a mistake?
+              <a target="_blank" class="style-scope google-codelab" href="mailto:info@qusandbox.com">Please file a bug</a>.
+            </div></div></div>
+    </div>
+  </app-drawer>
+
+    <iron-media-query class="style-scope app-drawer-layout" style="display: none;"></iron-media-query>
+  </app-drawer-layout><paper-dialog id="resumeDialog" modal="" class="style-scope google-codelab x-scope paper-dialog-0" role="dialog" tabindex="-1" aria-hidden="true" style="outline: none; display: none;">
+    
+    <h2 class="style-scope google-codelab">Would you like to resume where you left off?</h2><p class="style-scope google-codelab">Step <span class="style-scope google-codelab">4</span>: <span class="style-scope google-codelab">Hyperparameter tuning</span></p><div class="buttons style-scope google-codelab"><paper-button dialog-dismiss="" class="style-scope google-codelab x-scope paper-button-0" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">Cancel</paper-button><paper-button dialog-confirm="" autofocus="" class="style-scope google-codelab x-scope paper-button-0" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">Resume</paper-button></div>
+  </paper-dialog></google-codelab>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49880327-14', 'auto');
+
+    (function() {
+      var gaCodelab = '';
+      if (gaCodelab) {
+        ga('create', gaCodelab, 'auto', {name: 'codelab'});
+      }
+
+      var gaView;
+      var parts = location.search.substring(1).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var param = parts[i].split('=');
+        if (param[0] === 'viewga') {
+          gaView = param[1];
+          break;
+        }
+      }
+      if (gaView && gaView !== gaCodelab) {
+        ga('create', gaView, 'auto', {name: 'view'});
+      }
+    })();
+  </script>
+
+
+
+<script>document.addEventListener('DOMContentLoaded', function() { const lab = document.querySelector('google-codelab'); lab._goToHome = function() { console.log('Doing Nothing'); }});</script>
+</body></html>
