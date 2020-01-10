@@ -1,2 +1,0 @@
-- BD Processing implements “4 ssummer/2 Winter” Rule.
-- Bills.sas does not zero out CTA procurement rates. 
